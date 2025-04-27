@@ -26,8 +26,8 @@ import androidx.compose.ui.text.font.FontWeight
 @Composable
 fun telaObjetivo() {
 
-    val opcoes = listOf("Conseguir emprego", "Contratar funcionários")
-    var selecionado by remember { mutableStateOf("") }
+    val opcoes = listOf("Conseguir emprego", "Contratar funcionários") // opções disponíveis para o usuário escolher
+    var selecionado by remember { mutableStateOf("") }           // vai guardar a opção escolhida
 
     Column(
         modifier = Modifier
@@ -47,7 +47,6 @@ fun telaObjetivo() {
                 .align(Alignment.CenterHorizontally) // alinha o texto hirizontalmente
                 .padding(top = 150.dp)
         )
-
         Spacer(modifier = Modifier.height(100.dp))
 
         opcoes.forEach { opcao ->
