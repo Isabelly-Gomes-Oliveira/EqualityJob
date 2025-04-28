@@ -1,5 +1,6 @@
 package com.example.equalityjob
 
+import android.widget.CheckBox
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,7 +24,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-
+import androidx.compose.material3.RadioButton
 
 @Composable
 fun telaFormularioUsuarioComum(){
@@ -49,13 +50,16 @@ fun telaFormularioUsuarioComum(){
     var experienciaSelecionada by remember { mutableStateOf("") }
 
     //opções de identidade de gênero
-    val opcoesGenero = listOf("Homem", "Mulher", "Não-binário", "Agênero", "Gênero fluido", "Outro")
+    val opcoesGenero = listOf("Feminino", "Masculino", "Não-binário", "Agênero", "Gênero fluido", "Outro")
     var generoSelecionado by remember { mutableStateOf("") }
 
     //opções de sexualidade
     val opcoesSexualidade = listOf("Heterossexual", "Homossexual", "Bissexual", "Assexual", "Pansexual", "Outro")
     var sexualidadeSelecionada by remember { mutableStateOf("") }
 
+    //opções de condições especiais
+    val opcoesCondicao = listOf("Não possuo condição especial","Deficiência auditiva", "Deficiência visual", "Deficiência física", "Autismo", "Outra")
+    var condicaoSelecionada by remember { mutableStateOf("") }
 
     var email by remember { mutableStateOf("") }
     var resumo by remember { mutableStateOf("") }
@@ -170,10 +174,27 @@ fun telaFormularioUsuarioComum(){
 
             Text(
                 text = "Formação",
-                fontSize = 20.sp,
+                fontSize = 22.sp,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
             //opções
+            opcoesFormacao.forEach{ opcao ->
+                Row(  // uma Row para cada opção para que a bolinha e o texto fiquem um ao lado do outro
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .height(35.dp)
+                ) {
+                    RadioButton(  // faz aparecer cada opção clicável
+                        selected = (opcao == formacaoSelecionada),
+                        onClick = { formacaoSelecionada = opcao }
+                    )
+                    Text(        // o texto de cada opção
+                        text = opcao,
+                        fontSize = 20.sp
+                    )
+                }
+                
+            }
 
             Row(){
                 Column(
@@ -186,6 +207,21 @@ fun telaFormularioUsuarioComum(){
                         modifier = Modifier.padding(bottom = 8.dp)
                     )
                     //opções
+                    opcoesEtnia.forEach{ opcao ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.height(35.dp)
+                        ){
+                            RadioButton(
+                                selected = (opcao == etniaSelecionada),
+                                onClick = {etniaSelecionada = opcao}
+                            )
+                            Text(
+                                text = opcao,
+                                fontSize = 20.sp
+                            )
+                        }
+                    }
                 }
 
                 Spacer(Modifier.width(15.dp))
@@ -197,6 +233,21 @@ fun telaFormularioUsuarioComum(){
                         modifier = Modifier.padding(bottom = 8.dp)
                     )
                     //opções
+                    opcoesExperiencia.forEach{ opcao ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.height(35.dp)
+                        ){
+                            RadioButton(
+                                selected = (opcao == experienciaSelecionada),
+                                onClick = {experienciaSelecionada = opcao}
+                            )
+                            Text(
+                                text = opcao,
+                                fontSize = 20.sp
+                            )
+                        }
+                    }
                 }
 
             }
@@ -208,6 +259,22 @@ fun telaFormularioUsuarioComum(){
                         fontSize = 20.sp,
                         modifier = Modifier.padding(bottom = 8.dp)
                     )
+                    //opções
+                    opcoesSexualidade.forEach{ opcao ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.height(35.dp)
+                        ){
+                            RadioButton(
+                                selected = (opcao == sexualidadeSelecionada),
+                                onClick = {sexualidadeSelecionada = opcao}
+                            )
+                            Text(
+                                text = opcao,
+                                fontSize = 20.sp
+                            )
+                        }
+                    }
                 }
                 Column(){
                     Text(
@@ -215,6 +282,22 @@ fun telaFormularioUsuarioComum(){
                         fontSize = 20.sp,
                         modifier = Modifier.padding(bottom = 8.dp)
                     )
+                    //opções
+                    opcoesGenero.forEach{ opcao ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.height(35.dp)
+                        ){
+                            RadioButton(
+                                selected = (opcao == generoSelecionado),
+                                onClick = {generoSelecionado = opcao}
+                            )
+                            Text(
+                                text = opcao,
+                                fontSize = 20.sp
+                            )
+                        }
+                    }
                 }
             }
 
@@ -222,6 +305,8 @@ fun telaFormularioUsuarioComum(){
 
             Text(text = "Condição especial")
             //opções
+            // . . .
+
 
             Text(
                 text = "Email",
