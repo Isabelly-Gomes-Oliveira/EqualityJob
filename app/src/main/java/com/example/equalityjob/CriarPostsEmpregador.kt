@@ -19,8 +19,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
@@ -210,6 +208,26 @@ fun telaCriarPostsEmpregador(){
                 modifier = Modifier.padding(bottom = 8.dp)
             )
             //opções
+            opcoesNecessidadeEspecial.forEach { opcao ->
+                var indice = 0
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .height(30.dp)
+                ) {
+                    Checkbox(
+                        checked = necessidadesEspeciaisMarcadas[indice],
+                        onCheckedChange = { necessidadesEspeciaisMarcadas[indice] = it }
+                    )
+
+                    Text(
+                        text = opcao,
+                        fontSize = 20.sp,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                }
+                indice++
+            }
 
             Text(
                 text = "Causas apoiadas pela empresa:",
@@ -217,6 +235,26 @@ fun telaCriarPostsEmpregador(){
                 modifier = Modifier.padding(bottom = 8.dp)
             )
             //opções
+            opcoesCausas.forEach { opcao ->
+                var indice = 0
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .height(30.dp)
+                ) {
+                    Checkbox(
+                        checked = causasMarcadas[indice],
+                        onCheckedChange = { causasMarcadas[indice] = it }
+                    )
+
+                    Text(
+                        text = opcao,
+                        fontSize = 20.sp,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                }
+                indice++
+            }
 
             Text(
                 text = "É necessário ter experiência no mercado de trabalho?*",
@@ -248,6 +286,7 @@ fun telaCriarPostsEmpregador(){
                 modifier = Modifier.padding(bottom = 8.dp)
             )
             //botão com ícone de imagem
+            //. . .
 
             Spacer(Modifier.height(20.dp))
 
