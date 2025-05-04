@@ -1,8 +1,6 @@
 package com.example.equalityjob
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.Modifier
@@ -17,8 +15,6 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 
 @Composable
 fun telaOportunidades(){
@@ -31,7 +27,7 @@ fun telaOportunidades(){
         Row(
             Modifier
                 .fillMaxWidth()
-                .background(color = Color(0xFF041438))
+                .background(Color(0xFF041438))
                 .padding(25.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
