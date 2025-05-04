@@ -40,8 +40,8 @@ fun telaPesquisaEmpregador(){
             modifier = Modifier
                 .padding(start = 25.dp)
                 .align(Alignment.Start) // Centraliza horizontalmente
-                .width(150.dp)
-                .height(35.dp),
+                .width(120.dp)
+                .height(36.dp),
             shape = RoundedCornerShape(30.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3676B7)) // Cor de fundo do botão
         ){
@@ -171,8 +171,7 @@ fun telaPesquisaEmpregador(){
             Modifier
                 .fillMaxWidth()
                 .padding(20.dp)
-                .clip(RoundedCornerShape(16.dp)) // bordas arredondadas
-                .background(Color(0xFFE5EBF2))
+                .background(Color(0xFFF8FAFF))
                 .border(BorderStroke(2.dp, Color(0xFFBEBABA)), shape = RoundedCornerShape(16.dp))
                 .padding(20.dp)
         ){
