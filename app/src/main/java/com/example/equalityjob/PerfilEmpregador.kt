@@ -1,4 +1,4 @@
-package com.example.equalityjob.ui.theme
+package com.example.equalityjob
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,7 +35,6 @@ import androidx.compose.ui.zIndex
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
-import com.example.equalityjob.R
 
 @Composable
 fun telaPerfilEmpregador(){
