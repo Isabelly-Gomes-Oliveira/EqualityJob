@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "/NwiaOVpgkT6QqeiQRSyPaNYBl+800/PKdQrWJtBQVg=",
+  "Source": "ApiEQualityJob",
+  "BasePath": "_content/ApiEQualityJob",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
