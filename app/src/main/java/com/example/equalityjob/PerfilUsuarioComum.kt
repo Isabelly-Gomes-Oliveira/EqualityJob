@@ -33,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.zIndex
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 
@@ -67,10 +68,16 @@ fun telaPerfilUsuarioComum(){
 
                 Button(
                     onClick = {},
+                    contentPadding = PaddingValues(0.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3676B7)),
                     shape = RoundedCornerShape(8.dp)
                 ) {
                     // imagem das barrinhas
+                    Icon(
+                        imageVector = Icons.Filled.Menu,
+                        contentDescription = "Menu",
+                        tint = Color.White // deixa o ícone branco
+                    )
                 }
             }
 
@@ -109,12 +116,16 @@ fun telaPerfilUsuarioComum(){
                         onClick = {},
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3676B7)),
                         shape = RectangleShape,
+                        contentPadding = PaddingValues(0.dp),  // para fazer padding valer 0
                         modifier = Modifier
                             .border(1.dp, Color.Black)
+                            .background(Color(0xFF3676B7))
+                            .padding(start = 10.dp, end = 10.dp)
+
                     ) {
                         Text(
                             text = "Sobre",
-                            fontSize = 15.sp
+                            fontSize = 20.sp
                         )
                     }
 

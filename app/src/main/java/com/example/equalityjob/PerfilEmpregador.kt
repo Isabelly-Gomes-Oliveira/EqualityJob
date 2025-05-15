@@ -36,6 +36,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 
+import androidx.compose.material.icons.filled.Menu
+
 @Composable
 fun telaPerfilEmpregador(){
     var textoPesquisado by remember { mutableStateOf("") }
@@ -66,10 +68,15 @@ fun telaPerfilEmpregador(){
 
                 Button(
                     onClick = {},
+                    contentPadding = PaddingValues(0.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3676B7)),
                     shape = RoundedCornerShape(8.dp)
                 ) {
-                    // imagem das barrinhas
+                    Icon(
+                        imageVector = Icons.Filled.Menu,
+                        contentDescription = "Menu",
+                        tint = Color.White // deixa o ícone branco
+                    )
                 }
             }
 
@@ -111,33 +118,40 @@ fun telaPerfilEmpregador(){
                             onClick = {},
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3676B7)),
                             shape = RectangleShape,
+                            contentPadding = PaddingValues(0.dp),  // para fazer padding valer 0
                             modifier = Modifier
                                 .border(1.dp, Color.Black)
+                                .background(Color(0xFF3676B7))
+                                .padding(start = 4.dp, end = 4.dp)
                         ) {
                             Text(
                                 text = "Sobre",
-                                fontSize = 8.sp
+                                fontSize = 19.sp
                             )
                         }
 
-                        Spacer(Modifier.width(14.dp))
+                        Spacer(Modifier.width(12.dp))
                         Button(
                             onClick = {},
                             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
                             shape = RectangleShape,
+                            contentPadding = PaddingValues(0.dp),  // para fazer padding valer 0
                             modifier = Modifier
                                 .border(1.dp, Color.Black)
+                                .background(Color.White)
+                                .padding(start = 4.dp, end = 4.dp)
+
                         ) {
                             Text(
                                 text = "Posts",
-                                fontSize = 8.sp,
+                                fontSize = 19.sp,
                                 color = Color.Black
                             )
                         }
                     }
 
 
-                    Spacer(Modifier.height(16.dp))
+                    Spacer(Modifier.height(14.dp))
 
                     TextField(
                         value = textoPesquisado,
