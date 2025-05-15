@@ -6,7 +6,7 @@ import androidx.compose.foundation.border
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -35,7 +35,6 @@ import androidx.compose.ui.zIndex
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.*
 
 
 @Composable
@@ -143,11 +142,12 @@ fun telaPerfilUsuarioComum(){
                         },
                         modifier = Modifier
                             .height(35.dp)
-                            .border(1.dp, Color.Black, shape = MaterialTheme.shapes.small)
-                            .fillMaxWidth(),
+                            .fillMaxWidth()
+                            .background(Color.White, shape = RoundedCornerShape(16.dp)) // fundo branco com bordas arredondadas
+                            .border(1.dp, Color.Black, shape = RoundedCornerShape(16.dp)), // borda arredondada preta
 
                         singleLine = true,
-                        shape = MaterialTheme.shapes.small
+                        shape = RoundedCornerShape(16.dp)
                     )
 
 
