@@ -38,14 +38,14 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 
 @Composable
-fun telaPerfilEmpregadorPosts(){
+fun telaPerfilEmpregadorPosts() {
     Column(
         Modifier
             .fillMaxWidth()
             .fillMaxHeight()
             .fillMaxSize()
             .verticalScroll(rememberScrollState()) // permite a rolagem da tela
-    ){
+    ) {
 
         Box(modifier = Modifier.fillMaxSize()) {
             Row(
@@ -110,7 +110,7 @@ fun telaPerfilEmpregadorPosts(){
                     Spacer(Modifier.height(110.dp))
                     Row(
                         Modifier.fillMaxSize()
-                    ){
+                    ) {
                         Button(
                             onClick = {},
                             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
@@ -123,7 +123,8 @@ fun telaPerfilEmpregadorPosts(){
                         ) {
                             Text(
                                 text = "Sobre",
-                                fontSize = 19.sp
+                                fontSize = 19.sp,
+                                color = Color.Black
                             )
                         }
 
@@ -142,10 +143,24 @@ fun telaPerfilEmpregadorPosts(){
                             Text(
                                 text = "Posts",
                                 fontSize = 19.sp,
-                                color = Color.Black
+                                color = Color.White
                             )
                         }
                     }
+
+                }
+
+
+                    Text(
+                        text= "Aqui aparecerão os posts feitos pela empresa.",
+                        fontSize = 20.sp,
+                        color = Color.Black
+                    )
+
+
+            }
+        }
+
 
                     Spacer(modifier = Modifier.weight(1f)) // mantém a Row abaixo sempre no final da tela
                     Row(
@@ -154,14 +169,14 @@ fun telaPerfilEmpregadorPosts(){
                             .align(Alignment.End)
                             .background(Color(0xFF041438))
                             .padding(24.dp)
-                    ){
+                    ) {
                         Text(
                             text = "@ EQualityJob 2025 todos os direitos reservados",
                             fontSize = 15.sp,
                             color = Color.White
                         )
                     }
-
+        }
 }
 
 @Preview(showBackground = true)
