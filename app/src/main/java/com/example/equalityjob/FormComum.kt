@@ -26,13 +26,18 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.RadioButton
 
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.equalityjob.data.UsuarioComum
+import com.example.equalityjob.viewmodel.UsuarioViewModel
+
 @Composable
-fun telaFormularioUsuarioComum(){
+fun telaFormularioUsuarioComum(viewModelUsuario: UsuarioViewModel = viewModel()){
 // variáveis para as informações do formulário
     var estado by remember { mutableStateOf("") }
     var cidade by remember { mutableStateOf("") }
     var bairro by remember { mutableStateOf("") }
     var rua by remember { mutableStateOf("") }
+    var dataNasc by remember { mutableStateOf("") }
 
     val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
     var dataNascimento by remember { mutableStateOf(LocalDate.of(2000, 1, 1)) }
@@ -50,7 +55,7 @@ fun telaFormularioUsuarioComum(){
     var experienciaSelecionada by remember { mutableStateOf("") }
 
     //opções de identidade de gênero
-    val opcoesGenero = listOf("Feminino", "Masculino", "Não-binário", "Agênero", "Gênero fluido", "Outro")
+    val opcoesGenero = listOf("Mulher", "Homem", "Não-binário", "Agênero", "Gênero fluido", "Outro")
     var generoSelecionado by remember { mutableStateOf("") }
 
     //opções de sexualidade
@@ -338,8 +343,12 @@ fun telaFormularioUsuarioComum(){
 
             Button(
                 onClick = {
-                    // lidando com o click do botão
-                    // . . .
+                    viewModelUsuario.cadastrarUsuario(
+                                UsuarioComum(
+                                    //dataNascimento = dataNasc,
+                                    //cidade = cidade,
+                                    //estado = estado
+                                )
                 },
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally) // Centraliza horizontalmente

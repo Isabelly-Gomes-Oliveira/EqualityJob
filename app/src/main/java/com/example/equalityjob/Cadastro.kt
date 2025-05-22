@@ -37,6 +37,12 @@ fun telaCadastro(ehEmpregador: Boolean = false, viewModelUsuario: UsuarioViewMod
     var cpf by remember { mutableStateOf("") }
     var senha by remember { mutableStateOf("") }
     var aceitaTermos by remember { mutableStateOf(false) }
+    //var endereco by remember { mutableStateOf("") }
+    //var area by remember { mutableStateOf("") }
+    //var dataNasc by remember { mutableStateOf("") }
+    //var cidade by remember { mutableStateOf("") }
+    //var estado by remember { mutableStateOf("") }
+
 
     Column(modifier = Modifier
         .fillMaxSize()
@@ -153,6 +159,8 @@ fun telaCadastro(ehEmpregador: Boolean = false, viewModelUsuario: UsuarioViewMod
                                     senha = senha,
                                     nomeEmpresa = nome,
                                     celular = celular
+                                    //endereco = endereco,
+                                    //areaAtuacao = area
                                 )
                             )
                         } else {
@@ -162,6 +170,9 @@ fun telaCadastro(ehEmpregador: Boolean = false, viewModelUsuario: UsuarioViewMod
                                     senha = senha,
                                     nomeCompleto = nome,
                                     celular = celular
+                                    //dataNascimento = dataNasc,
+                                    //cidade = cidade,
+                                    //estado = estado
                                 )
                             )
                         }
