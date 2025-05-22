@@ -22,10 +22,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.equalityjob.data.Empregador
+import com.example.equalityjob.data.UsuarioComum
+import com.example.equalityjob.viewmodel.EmpregadorViewModel
+import com.example.equalityjob.viewmodel.UsuarioViewModel
 
 
 @Composable
-fun telaCadastro(){
+fun telaCadastro(ehEmpregador: Boolean = false, viewModelUsuario: UsuarioViewModel = viewModel(), viewModelEmpregador: EmpregadorViewModel = viewModel()){
     // Variáveis para armazenar os valores digitados
     var nome by remember { mutableStateOf("") }
     var celular by remember { mutableStateOf("") }
@@ -140,9 +145,29 @@ fun telaCadastro(){
             //Campo do botão
             Button(
                 onClick = {
-                    // lidando com o click do botão
-                    // . . .
-                },
+                    if (aceitaTermos) {
+                        if (ehEmpregador) {
+                            viewModelEmpregador.cadastrarEmpregador(
+                                Empregador(
+                                    cpf = cpf,
+                                    senha = senha,
+                                    nomeEmpresa = nome,
+                                    celular = celular
+                                )
+                            )
+                        } else {
+                            viewModelUsuario.cadastrarUsuario(
+                                UsuarioComum(
+                                    cpf = cpf,
+                                    senha = senha,
+                                    nomeCompleto = nome,
+                                    celular = celular
+                                )
+                            )
+                        }
+                    }
+                }
+                ,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally) // Centraliza horizontalmente
                     .width(280.dp)
