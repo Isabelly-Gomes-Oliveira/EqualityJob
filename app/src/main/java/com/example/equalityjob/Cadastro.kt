@@ -155,24 +155,19 @@ fun telaCadastro(ehEmpregador: Boolean = false, viewModelUsuario: UsuarioViewMod
                         if (ehEmpregador) {
                             viewModelEmpregador.cadastrarEmpregador(
                                 Empregador(
-                                    cpf = cpf,
-                                    senha = senha,
                                     nomeEmpresa = nome,
-                                    celular = celular
-                                    //endereco = endereco,
-                                    //areaAtuacao = area
+                                    celular = celular,
+                                    cpfEmpregador = cpf,
+                                    senha = senha,
                                 )
                             )
                         } else {
                             viewModelUsuario.cadastrarUsuario(
                                 UsuarioComum(
-                                    cpf = cpf,
-                                    senha = senha,
                                     nomeCompleto = nome,
-                                    celular = celular
-                                    //dataNascimento = dataNasc,
-                                    //cidade = cidade,
-                                    //estado = estado
+                                    cpfUsuario = cpf,
+                                    celular = celular,
+                                    senha = senha
                                 )
                             )
                         }

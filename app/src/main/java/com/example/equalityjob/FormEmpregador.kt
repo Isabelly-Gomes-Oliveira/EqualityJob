@@ -1,4 +1,4 @@
-package com.example.equalityjob
+package com.example.equalityjob.data
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -200,8 +200,9 @@ fun telaFormularioEmpregador(){
 
             Button(
                 onClick = {
-                    // lidando com o click do botão
-                    // . . .
+                    //viewModelEmpregador.cadastrarEmpregador(
+                    //
+                   // )
                 },
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally) // Centraliza horizontalmente
