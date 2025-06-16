@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\ApiEQualityJob.props" />
-</Project>

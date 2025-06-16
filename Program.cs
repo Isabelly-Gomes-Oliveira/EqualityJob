@@ -12,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Deixar o banco de dados em memória pra testar mais fácil
 // Se for usar o SQL Server, descomentar a linha abaixo e comentar a linha de cima
 builder.Services.AddDbContext<AppDbContext>(opt =>
-    // opt.UseInMemoryDatabase("EqualityJobDB"));
-opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    opt.UseInMemoryDatabase("EqualityJobDB"));
+// opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Configura a autenticação JWT
 // Chave secreta que é usada para assinar o token
@@ -121,7 +121,7 @@ app.MapPost("/auth/login", async (AppDbContext db, LoginUsuario login) =>
     var claims = new[]
     {
         new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
-        new Claim(ClaimTypes.Email, usuario.Email)
+        new Claim(ClaimTypes.MobilePhone, usuario.Celular)
     };
 
     // Gera a chave de segurança e as credenciais, usando o algoritmo SHA256

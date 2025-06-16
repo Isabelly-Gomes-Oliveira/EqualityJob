@@ -8,7 +8,7 @@ public class Empregador
     public int Id { get; set; }
     public Usuario Usuario { get; set; }
     public string Nome { get; set; }
-    public string Celular { get; set; }
+    public string CelularEmpresa { get; set; }
     public string? AreaAtuacao { get; set; }
     public string? Email { get; set; }
     public string Estado { get; set; }
@@ -27,7 +27,7 @@ public class Empregador
     {
         Usuario = usuario;
         Nome = cadastro.Nome;
-        Celular = cadastro.Celular;
+        CelularEmpresa = cadastro.CelularEmpresa;
         AreaAtuacao = cadastro.AreaAtuacao;
         Email = cadastro.Email;
         Estado = cadastro.Estado;
