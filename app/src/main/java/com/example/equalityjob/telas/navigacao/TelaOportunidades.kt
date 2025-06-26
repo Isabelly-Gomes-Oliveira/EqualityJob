@@ -6,18 +6,28 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.Modifier
 import androidx.compose.material3.Text
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.AsyncImage
+import com.example.equalityjob.viewmodel.VagaEmpregoViewModel
 
 @Composable
-fun TelaOportunidades() {
+fun TelaOportunidades(vagasEmpregoViewModel: VagaEmpregoViewModel = viewModel()) {
+    LaunchedEffect(Unit) {
+        vagasEmpregoViewModel.listarVagasEmprego()
+    }
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -64,15 +74,23 @@ fun TelaOportunidades() {
 
             Spacer(Modifier.height(18.dp))
 
-            Row( // Row que vai se repetir para cada oportunidade
-                Modifier.padding(20.dp)
-            ) {
-                //imagem
-                Spacer(Modifier.width(25.dp))
-                Text(text = "Uma nova proposta de emprego!", fontSize = 20.sp)
+            LazyColumn {
+                items(vagasEmpregoViewModel.vagasEmprego.value) { item ->
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)) {
+                        AsyncImage(
+                            model = item.imagens.firstOrNull(),
+                            contentDescription = "Imagem da vaga",
+                            modifier = Modifier
+                                .size(80.dp)
+                                .background(Color.LightGray, shape = RoundedCornerShape(8.dp))
+                        )
+                        Spacer(Modifier.width(25.dp))
+                        Text(text = "Uma nova proposta de emprego!", fontSize = 20.sp)
+                    }
+                }
             }
-
-            // outras oportunidades . . .
         }
 
         Spacer(modifier = Modifier.weight(1f)) // mantém a Row abaixo sempre no final da tela

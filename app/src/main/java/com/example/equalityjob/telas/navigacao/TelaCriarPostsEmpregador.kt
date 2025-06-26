@@ -26,9 +26,12 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.RadioButton
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.equalityjob.data.model.VagaEmprego
+import com.example.equalityjob.viewmodel.VagaEmpregoViewModel
 
 @Composable
-fun TelaCriarPostsEmpregador() {
+fun TelaCriarPostsEmpregador(vagaEmpregoViewModel: VagaEmpregoViewModel = viewModel()) {
     // variáveis para os dados digitados
     var titulo by remember { mutableStateOf("") }
     var descricaoVaga by remember { mutableStateOf("") }
@@ -300,8 +303,23 @@ fun TelaCriarPostsEmpregador() {
 
             Button(
                 onClick = {
-                    // lidando com o click do botão
-                    // . . .
+                    vagaEmpregoViewModel.adicionarVagaEmprego(
+                        VagaEmprego(
+                            0,
+                            titulo,
+                            descricaoVaga,
+                            cargo,
+                            salario.toDouble(),
+                            endereco,
+                            opcoesModalidade.filterIndexed { index, _ -> modalidadesMarcadas[index] },
+                            opcoesFaixasEtarias.filterIndexed { index, _ -> faixasEtariasMarcadas[index] },
+                            necessidadesEspeciaisMarcadas.any { it },
+                            opcoesNecessidadeEspecial.filterIndexed { index, _ -> necessidadesEspeciaisMarcadas[index] },
+                            opcoesCausas.filterIndexed { index, _ -> causasMarcadas[index] },
+                            experienciaSelecionada,
+                            emptyList()
+                        )
+                    )
                 },
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally) // Centraliza horizontalmente
